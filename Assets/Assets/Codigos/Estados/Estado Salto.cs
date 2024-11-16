@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class EstadoSaltoPared: Basestate
 {
-    [SerializeField] private float fuerzaSalto;
     public EstadoSaltoPared(MovimientoStates controladorParametros) : base(controladorParametros) //Base se refiere a la clase padre
     {
 
@@ -10,7 +9,6 @@ public class EstadoSaltoPared: Basestate
     public override void StateStart()
     {
         controlador.dongojo.Play("SaltoPared");
-        controlador.rigid.AddForce(Vector2.up * fuerzaSalto);
     }
     public override void StateUpdate()
     {
@@ -20,9 +18,9 @@ public class EstadoSaltoPared: Basestate
     {
         
     }
-    public override void StateExit()
+    public override void StateExit(Basestate newState)
     {
-        
+        controlador.CambiarEstado(newState);
     }
 
 }

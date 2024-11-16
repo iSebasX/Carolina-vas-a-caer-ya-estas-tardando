@@ -1,16 +1,15 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class EstadoBase : MonoBehaviour
+public abstract class Basestate
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public Basestate(MovimientoStates controladorParametros) 
     {
-        
+        controlador = controladorParametros;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    protected MovimientoStates controlador; // Protected es que se puede acceder a el desde todas las clases hijas
+    public abstract void StateStart();
+    public abstract void StateUpdate();
+    public abstract void FixedUpdateState();
+    public abstract void StateExit(Basestate newState);    
 }

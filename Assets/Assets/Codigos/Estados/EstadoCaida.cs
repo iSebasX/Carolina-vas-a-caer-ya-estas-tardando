@@ -12,15 +12,29 @@ public class EstadoCaida: Basestate
     }
     public override void StateUpdate()
     {
-        
+        if (controlador.rigid.linearVelocity.y <= 0)
+        {
+            if (controlador.tocandoPiso)
+            {
+                if (controlador.horizontal == 0)
+                {
+                    StateExit(controlador.idle);
+                }
+                else if (controlador.horizontal != 0)
+                {
+                    StateExit(controlador.correr);
+                }
+            }
+        }
+
     }
     public override void FixedUpdateState()
     {
         
     }
-    public override void StateExit()
+    public override void StateExit(Basestate newState)
     {
-        
+        controlador.CambiarEstado(newState);
     }
 
 }

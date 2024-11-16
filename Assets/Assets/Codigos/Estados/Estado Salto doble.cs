@@ -18,9 +18,9 @@ public class EstadoSaltoDoble: Basestate
     {
         
     }
-    public override void StateExit()
+    public override void StateExit(Basestate newState)
     {
-        
+        controlador.CambiarEstado(newState);
     }
 
 }

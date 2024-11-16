@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem.DualShock.LowLevel;
 
 public class MovimientoStates : MonoBehaviour
 {
@@ -7,14 +8,23 @@ public class MovimientoStates : MonoBehaviour
 
     Basestate estadoActual;
     
-    EstadoIdle idle; 
-    EstadoCorrer correr; 
-    EstadoSalto salto; 
-    EstadoCaida caida;
-    EstadoSaltoDoble saltoDoble;
-    EstadoSaltoPared saltoPared;
+    public EstadoIdle idle; 
+    public EstadoCorrer correr; 
+    public EstadoSalto salto; 
+    public EstadoCaida caida;
+    public EstadoSaltoDoble saltoDoble;
+    public EstadoSaltoPared saltoPared;
 
-    public float velodidad;
+    public float fuerzaSalto;
+    public float horizontal;
+    public float velocidad;
+
+    [SerializeField] Transform centroDeteccion;
+    [SerializeField] LayerMask capasDeteccion;
+    [SerializeField] public KeyCode teclas;
+    [SerializeField] Vector2 tamañoDeteccion;
+
+    public bool tocandoPiso;
 
     void Start()
     {
@@ -32,12 +42,37 @@ public class MovimientoStates : MonoBehaviour
     }
     void Update()
     {
-        
+        horizontal = Input.GetAxis("Horizontal");
+
+        estadoActual.StateUpdate();
+
+        Flip();
+    }
+
+    private void FixedUpdate()
+    {
+        estadoActual.FixedUpdateState();
+
+        tocandoPiso= Physics2D.OverlapBox(centroDeteccion.position,tamañoDeteccion,0,capasDeteccion);
     }
 
     public void CambiarEstado (Basestate nuevoEstado) 
     {
         estadoActual = nuevoEstado;
         estadoActual.StateStart();
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(centroDeteccion.position, tamañoDeteccion);
+        Gizmos.color = Color.red;
+    }
+    
+    private void Flip () 
+    {
+        if (horizontal < 0 && transform.localEulerAngles.y == 0 || horizontal > 0 && transform.localEulerAngles.y == 180)
+        {
+            transform.localEulerAngles = new Vector3 (transform.eulerAngles.x,horizontal >0? 0:180, transform.eulerAngles.z);
+        }
     }
 }
