@@ -17,13 +17,12 @@ public class MovimientoStates : MonoBehaviour
 
     public float fuerzaSalto;
     public float horizontal;
-    public float velocidad;
+    public int velocidad;
 
     [SerializeField] Transform centroDeteccion;
     [SerializeField] LayerMask capasDeteccion;
     [SerializeField] public KeyCode teclas;
     [SerializeField] Vector2 tamañoDeteccion;
-
     public bool tocandoPiso;
 
     void Start()

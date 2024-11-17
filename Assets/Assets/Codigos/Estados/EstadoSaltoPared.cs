@@ -17,6 +17,7 @@ public class EstadoSalto: Basestate
         {
             if (controlador.tocandoPiso)
             {
+
                 if (controlador.horizontal == 0)
                 {
                     StateExit(controlador.idle);
@@ -35,10 +36,10 @@ public class EstadoSalto: Basestate
     public override void FixedUpdateState() 
     {
         
+        
     }
     public override void StateExit(Basestate newState)
     {
         controlador.CambiarEstado(newState);
     }
-
 }

@@ -35486,9 +35486,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dongojo: {fileID: 1940661246}
   rigid: {fileID: 1940661249}
-  fuerzaSalto: 5
-  horizontal: 10
-  velocidad: 10
+  fuerzaSalto: 7
+  horizontal: 0
+  velocidad: 7
   centroDeteccion: {fileID: 1069107397}
   capasDeteccion:
     serializedVersion: 2
