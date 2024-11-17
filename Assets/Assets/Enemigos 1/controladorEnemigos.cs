@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class controladorEnemigos : MonoBehaviour
 {
-    Animator anim;
-    Rigidbody2D rg;
+    public Animator anim;
+    public Rigidbody2D rg;
     public Collider2D objetivo;
     public float velocidad;
     public Transform centroVision;
