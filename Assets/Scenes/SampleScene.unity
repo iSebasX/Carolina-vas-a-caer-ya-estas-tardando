@@ -35264,8 +35264,8 @@ BoxCollider2D:
   m_Offset: {x: -0.009946823, y: -0.08297253}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.3125, y: 1.8125}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.4375, y: 1.625}
     newSize: {x: 1.3125, y: 1.8125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -35301,9 +35301,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dongojo: {fileID: 1940661246}
   rigid: {fileID: 1940661249}
-  fuerzaSalto: 5
-  horizontal: 10
-  velocidad: 10
+  fuerzaSalto: 7
+  horizontal: 0
+  velocidad: 7
   centroDeteccion: {fileID: 1069107397}
   capasDeteccion:
     serializedVersion: 2
