@@ -204,6 +204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 7851395647064071332}
   rigid: {fileID: 928029613469273144}
+  objetivos: []
   objetivo: {fileID: 0}
   velocidad: 3
   centroVision: {fileID: 1552042871241353742}
@@ -215,6 +216,7 @@ MonoBehaviour:
   Luisa:
   - {fileID: 5990307165492484677}
   movimiento: 0
+  etectorPersonaje: {fileID: 0}
 --- !u!114 &6132683866258859298
 MonoBehaviour:
   m_ObjectHideFlags: 0

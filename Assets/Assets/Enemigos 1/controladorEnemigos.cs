@@ -1,7 +1,5 @@
-using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
-using System.Xml.Serialization;
 
 public class controladorEnemigos : MonoBehaviour
 {
@@ -20,10 +18,6 @@ public class controladorEnemigos : MonoBehaviour
     public List<Daño> Luisa;
 
     public bool movimiento;
-
-    ControladorEnemigo muerte;
-
-    [SerializeField] Collider2D etectorPersonaje;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

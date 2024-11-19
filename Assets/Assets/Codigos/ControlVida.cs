@@ -1,4 +1,3 @@
-using UnityEditor.SearchService;
 using UnityEngine;
 
 public class ControladorVida : MonoBehaviour
@@ -34,7 +33,8 @@ public class ControladorVida : MonoBehaviour
         if (vida <= 0)
         {
             muerte?.Invoke(vida);
-
+            vida = 0;
+            Destroy(gameObject);
         }
     }
 
