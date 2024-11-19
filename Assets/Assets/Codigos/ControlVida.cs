@@ -3,6 +3,11 @@ using UnityEngine;
 
 public class ControladorVida : MonoBehaviour
 {
+    public delegate void VidaActualizadaDelegado(float nuevoValor);
+    public VidaActualizadaDelegado muerte;
+    public VidaActualizadaDelegado recibioDaño;
+    public VidaActualizadaDelegado recibioCura;
+
     [SerializeField] private float vida;
     [SerializeField] private float vidaMaxima;
 
@@ -25,18 +30,20 @@ public class ControladorVida : MonoBehaviour
     {
         vida -= daño;
         OnVidaCambiada?.Invoke(vida);
+        recibioDaño?.Invoke(vida);
         if (vida <= 0)
         {
-            Debug.Log("Muerto");
-            Destroy(gameObject);
+            muerte?.Invoke(vida);
+
         }
     }
 
     public void RecibirCura(float cura)
     {
         vida += cura;
+        recibioCura?.Invoke(vida);
         if (vida >= vidaMaxima)
-        {
+        { 
             vida = vidaMaxima;
         }
         OnVidaCambiada?.Invoke(vida);
