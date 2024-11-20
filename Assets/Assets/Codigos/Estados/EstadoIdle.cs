@@ -9,8 +9,7 @@ public class EstadoIdle : Basestate
     public override void StateStart()
     {
         controlador.dongojo.Play("Idle");
-        controlador.rigid.linearVelocity = new Vector2(0,controlador.rigid.linearVelocity.y);
-        
+        controlador.rigid.linearVelocity = new Vector2(0, controlador.rigid.linearVelocity.y);
     }
     public override void StateUpdate()
     {

@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class controladorEnemigos : MonoBehaviour
+public class ControladorEnemigos : MonoBehaviour
 {
     public Animator anim;
     public Rigidbody2D rigid;
@@ -16,9 +16,10 @@ public class controladorEnemigos : MonoBehaviour
     public float distancia;
 
     public List<Daño> Luisa;
+    public RaycastHit2D rayo;
+    MovimientoStates movimientoStates;
 
     public bool movimiento;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -26,28 +27,34 @@ public class controladorEnemigos : MonoBehaviour
 
         InvokeRepeating("DetectarEnemigos",0,0.3f);
     }
+    public void Update()
+    {
+        if (Physics2D.Raycast(gameObject.transform.position, Vector2.left, Mathf.Infinity, capaVision))
+        {
+            Flip();
+        }
+    }
 
     public void DetectarEnemigos()
     {
         objetivos = Physics2D.OverlapBoxAll(centroVision.position, tamañoVision, 0, capaVision);
-        anim.SetBool("jugadorDetectado", objetivo);
+        anim.SetBool("jugadorDetectado", objetivo != null);
         if (objetivos.Length > 0)
         {
             float distancia2 = Mathf.Infinity;
             int indice = -1;
 
-            for (int U = 0; U < objetivos.Length; U++) 
+            for (int U = 0; U < objetivos.Length; U++)
             {
                if (Vector2.Distance(transform.position, objetivos[U].transform.position) < distancia2)
                 {
-                    distancia = Vector2.Distance(transform.position, objetivos[U].transform.position);
+                    distancia2 = Vector2.Distance(transform.position, objetivos[U].transform.position);
                     indice = U;
                 }
             }
             objetivo = objetivos[indice];
         }
-
-        else 
+        else
         {
             objetivo = null;
         }
@@ -59,7 +66,7 @@ public class controladorEnemigos : MonoBehaviour
         }
     }
 
-    public void DesactivarMovimiento () 
+    public void DesactivarMovimiento()
     {
         movimiento = false;
     }
@@ -73,19 +80,26 @@ public class controladorEnemigos : MonoBehaviour
         Gizmos.DrawWireCube(centroVision.position, tamañoVision);
     }
 
-    private void ActivarDaño () 
+    private void ActivarDaño()
     {
-        foreach (var item in Luisa) 
+        foreach (var item in Luisa)
         {
            item.EnableCollitions();
         }
     }
 
-    private void DesactivarDaño () 
+    private void DesactivarDaño()
     {
         foreach (var item in Luisa)
         {
             item.DisableCollitions();
+        }
+    }
+    private void Flip()
+    {
+        if (Physics2D.Raycast(gameObject.transform.position, Vector2.left, Mathf.Infinity, capaVision))
+        {
+            transform.localEulerAngles = new Vector3(transform.eulerAngles.x, movimientoStates.horizontal > 0 ? 0 : 180, transform.eulerAngles.z);
         }
     }
 }

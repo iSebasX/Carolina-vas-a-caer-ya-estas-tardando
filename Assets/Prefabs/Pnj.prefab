@@ -149,7 +149,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.009946823, y: -0.08297253}
+  m_Offset: {x: 0.0043911934, y: -0.09444308}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -159,7 +159,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.2186623, y: 1.4129534}
+  m_Size: {x: 0.94910336, y: 1.4358945}
   m_EdgeRadius: 0
 --- !u!50 &8437073600942789372
 Rigidbody2D:
@@ -173,10 +173,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.7
   m_Material: {fileID: 6200000, guid: b62066de2a0715a4996a881a93988831, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dongojo: {fileID: 4669870421459135304}
   rigid: {fileID: 8437073600942789372}
-  fuerzaSalto: 7
+  fuerzaSalto: 25
   horizontal: 0
   velocidad: 7
   centroDeteccion: {fileID: 7560808976841379761}

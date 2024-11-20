@@ -12,17 +12,17 @@ public class EstadoSalto: Basestate
         controlador.rigid.AddForce(Vector2.up * controlador.fuerzaSalto, ForceMode2D.Impulse);
     }
     public override void StateUpdate()
-    {
+    {   
         if(controlador.rigid.linearVelocity.y <= 0) 
         {
             if (controlador.tocandoPiso)
             {
 
-                if (controlador.horizontal == 0)
-                {
-                    StateExit(controlador.idle);
-                }
-                else if (controlador.horizontal != 0)
+                //if (controlador.horizontal == 0)
+                //{
+                //   StateExit(controlador.idle);
+                //}
+                if (controlador.horizontal != 0)
                 {
                     StateExit(controlador.correr);
                 }

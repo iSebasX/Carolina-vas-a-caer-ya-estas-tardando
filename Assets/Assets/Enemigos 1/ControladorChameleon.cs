@@ -3,7 +3,7 @@ using UnityEngine;
 public class ControladorEnemigo : MonoBehaviour
 {
     [SerializeField] ControladorVida vida;
-    [SerializeField] controladorEnemigos movimientos;
+    [SerializeField] ControladorEnemigos movimientos;
 
     private void OnEnable() //Se ejecuta cada que un objeto en la escena se activa
     {

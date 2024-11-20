@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class Perseguir : StateMachineBehaviour
 {
-    controladorEnemigos Ranita;
+    ControladorEnemigos Ranita;
   
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Ranita = animator.GetComponent<controladorEnemigos>();
+        Ranita = animator.GetComponent<ControladorEnemigos>();
     }
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
