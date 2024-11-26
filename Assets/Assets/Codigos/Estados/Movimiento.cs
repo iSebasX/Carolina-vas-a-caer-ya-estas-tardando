@@ -1,7 +1,9 @@
+using System.Collections;
 using UnityEngine;
 
 public class MovimientoStates : MonoBehaviour
 {
+    public Joystick Joystick;
     public Animator dongojo;
     public Rigidbody2D rigid;
 
@@ -24,6 +26,8 @@ public class MovimientoStates : MonoBehaviour
     [SerializeField] Vector2 tamañoDeteccion;
     public bool tocandoPiso;
 
+    public bool saltoActivado;
+
     void Start()
     {
         dongojo = GetComponent<Animator>();
@@ -36,11 +40,12 @@ public class MovimientoStates : MonoBehaviour
         saltoDoble = new EstadoSaltoDoble(this);
         saltoPared = new EstadoSaltoPared(this);
 
+
         CambiarEstado(idle);
     }
     void Update()
     {
-        horizontal = Input.GetAxis("Horizontal");
+        horizontal = Joystick.Horizontal;
 
         estadoActual.StateUpdate();
 
@@ -72,5 +77,15 @@ public class MovimientoStates : MonoBehaviour
         {
             transform.localEulerAngles = new Vector3(transform.eulerAngles.x, horizontal > 0 ? 0 : 180, transform.eulerAngles.z);
         }
-    } 
+    }
+    public void SaltoMobile() 
+    {
+        StartCoroutine(EjecutarSaltoCorrutina());
+    }
+    IEnumerator EjecutarSaltoCorrutina() 
+    {
+        saltoActivado = true;
+        yield return new WaitForEndOfFrame();  
+        saltoActivado = false;
+    }
 }

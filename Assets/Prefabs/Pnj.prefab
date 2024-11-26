@@ -214,6 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0359290f22f94074aba00415ce8fd03d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Joystick: {fileID: 0}
   dongojo: {fileID: 4669870421459135304}
   rigid: {fileID: 8437073600942789372}
   fuerzaSalto: 25
@@ -226,6 +227,7 @@ MonoBehaviour:
   teclas: 32
   "tama\xF1oDeteccion": {x: 0.96, y: 0.34}
   tocandoPiso: 0
+  saltoActivado: 0
 --- !u!1 &8818064725820834962
 GameObject:
   m_ObjectHideFlags: 0

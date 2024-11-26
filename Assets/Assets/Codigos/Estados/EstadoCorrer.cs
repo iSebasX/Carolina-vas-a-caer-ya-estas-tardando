@@ -17,7 +17,7 @@ public class EstadoCorrer : Basestate
         { 
             if (controlador.tocandoPiso)
             {
-                if (Input.GetKeyDown(controlador.teclas))
+                if (Input.GetKeyDown(controlador.teclas) || controlador.saltoActivado)
                 {
                     StateExit(controlador.salto);
                 }

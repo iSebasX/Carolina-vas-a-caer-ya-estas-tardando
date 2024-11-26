@@ -35,6 +35,7 @@ public class ControladorVida : MonoBehaviour
             muerte?.Invoke(vida);
             vida = 0;
             Destroy(gameObject);
+
         }
     }
 
