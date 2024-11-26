@@ -1,4 +1,4 @@
-
+using UnityEngine;
 public class EstadoCaida: Basestate
 {
     public EstadoCaida(MovimientoStates controladorParametros) : base(controladorParametros) //Base se refiere a la clase padre
@@ -29,7 +29,7 @@ public class EstadoCaida: Basestate
     }
     public override void FixedUpdateState()
     {
-        
+        controlador.rigid.linearVelocity = new Vector2(controlador.horizontal * controlador.velocidad, controlador.rigid.linearVelocityY);
     }
     public override void StateExit(Basestate newState)
     {

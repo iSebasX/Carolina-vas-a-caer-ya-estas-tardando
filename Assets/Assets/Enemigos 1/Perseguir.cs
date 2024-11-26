@@ -12,7 +12,7 @@ public class Perseguir : StateMachineBehaviour
     {
         if (Ranita.movimiento) 
         {
-            Ranita.rigid.linearVelocity = new Vector2(Ranita.velocidad, Ranita.rigid.linearVelocityY);
+            Ranita.rigid.linearVelocity = new Vector2(animator.transform.right.x* Ranita.velocidad, Ranita.rigid.linearVelocityY);
         }
     }
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

@@ -35,8 +35,7 @@ public class EstadoSalto: Basestate
     }
     public override void FixedUpdateState() 
     {
-        
-        
+        controlador.rigid.linearVelocity = new Vector2(controlador.horizontal * controlador.velocidad, controlador.rigid.linearVelocityY);
     }
     public override void StateExit(Basestate newState)
     {
